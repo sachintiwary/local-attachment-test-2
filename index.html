@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Total Sales</title>
+</head>
+<body>
+<h1>Total Sales: <span id="total-sales">0</span></h1>
+<script>
+const csvData = `Product,Sales
+Apple,150
+Banana,50
+Cherry,200`;
+
+let total = 0;
+const lines = csvData.trim().split('\n');
+for (let i = 1; i < lines.length; i++) {
+  const parts = lines[i].split(',');
+  const sales = parseFloat(parts[1]);
+  if (!isNaN(sales)) {
+    total += sales;
+  }
+}
+document.getElementById('total-sales').textContent = total;
+</script>
+</body>
+</html>
